@@ -1,0 +1,16 @@
+{
+  "title": "Galaxy Tour Builder",
+  "name": "galaxy-tour-builder",
+  "version": "0.0.1",
+  "description": "A simple tool to assist in building Galaxy Tours.",
+  "main": "index.js",
+  "author": "Dannon Baker",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ]
+}
