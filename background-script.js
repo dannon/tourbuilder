@@ -1,13 +1,3 @@
-/*
- * Currently unused, but will eventually create the tour script in a different tab/pane.
- */
-/*
-function notify(message) {
-    //Log to background tab, etc.
-}
-chrome.runtime.onMessage.addListener(notify);
-*/
-
 var currentTab;
 var tour_recording = false;
 
