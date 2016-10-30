@@ -1,0 +1,24 @@
+{
+
+  "manifest_version": 2,
+  "name": "Galaxy Tour Builder",
+  "description": "This plugin will allow building of Galaxy Tours",
+  "version": "1.0",
+  "homepage_url": "https://github.com/dannon/galaxy-tour-builder",
+  "icons": {"48": "icons/galaxy.png"},
+  "browser_action": {
+      "default_icon": "icons/galaxy.png",
+      "default_title": "Galaxy Tours!"
+  },
+  "background": {
+    "scripts": ["background-script.js"],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+        "matches": ["<all_urls>"],
+        "js": ["jquery-3.1.1.slim.min.js", "jquery.dompath.min.js", "content-script.js"]
+    }
+  ]
+
+}
