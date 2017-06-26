@@ -25,7 +25,9 @@ function notifyExtension(e) {
 function addStep(path) {
     var $text = $('#tour-textarea');
     var content = $text.val();
-    if ('' !== path) {
+    var tour_config_patt = new RegExp("tour-config");
+    var uid_patt = new RegExp("uid");
+    if ('' !== path && !tour_config_patt.test(path) && !uid_patt.test(path)) {
         content = content + '\n  - title: \'Step ' + nbSteps++ + '\'\n    element: \'' + path + '\'\n    content: \'\'\n    placement: \'\'\n    postclick: \n      - ' + path + '\n';
     }
     $text.val(content);
