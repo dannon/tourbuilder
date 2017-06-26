@@ -1,5 +1,6 @@
-Galaxy Tour Builder is a webextension which assists in the building of Galaxy
-Tours.
+
+# Galaxy Tour Builder 
+is a webextension which assists in the building of Galaxy Tours.
 
 ## Usage
 
@@ -8,14 +9,6 @@ Activate recording mode by clicking on the symbol, which will then
 turn red. Now perform the steps of the tour within galaxy. The corresponding
 code will appear in the section that opened in lower section of the browser
 window. This code can now be used as a draft for the tour.
-
-## Dependencies
-This web extension uses jquery and jquery-dompath.
-
-Currently only chrome is supported. 
-
-Anyway if you want to adapt it to firefox here are the first steps on how to 
-install it. 
 
 ## Installation
 To make the extension available in your browser it has to be loaded first.
@@ -42,3 +35,6 @@ Temporary installation in Firefox:
 
 For creation of a permanent addon see: 
 https://developer.mozilla.org/en-US/Add-ons/WebExtensions/Publishing_your_WebExtension
+
+## Dependencies
+This web extension uses jquery and jquery-dompath, they are included in the package.
