@@ -3,12 +3,18 @@ var recording = false;
 var nbSteps = 1;
 var defaultContent = '\nid: new-tour\nname: NewTour\ndescription: Hello, this is a new tour!\ntitle_default: "New Tour"\n\nsteps:';
 
+window.browser = (function () {
+  return window.msBrowser ||
+    window.browser ||
+    window.chrome;
+})();
+
 function toggleTourRecording(toggle){
     recording = toggle;
 }
 
 
-function notifyExtension(e) {
+function notifyExtension(event) {
     if (recording){
         if ('tour-toggle' === event.target.id) {
             var h = $('#tour-config').css('height');
@@ -34,7 +40,7 @@ function addStep(path) {
 };
 
 window.addEventListener("click", notifyExtension);
-chrome.extension.onMessage.addListener(function(msg, sender, sendResponse) {
+window.browser.runtime.onMessage.addListener(function(msg, sender, sendResponse) {
   if (msg.action == 'toggle_tour_record') {
       if (msg.value === true && !$('#tour-config').length) {
         $('body').append('\n    <div style="position: absolute; bottom: 0; height: 200px; width: 100%; z-index: 1000;" id="tour-config">\n      <button id="tour-toggle">toggle</button>\n      <textarea style="width: 100%; height: 100%;" id="tour-textarea">' + defaultContent + '</textarea>\n    </div>');
