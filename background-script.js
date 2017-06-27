@@ -1,8 +1,14 @@
 var currentTab;
 var tour_recording = false;
 
+window.browser = (function () {
+  return window.msBrowser ||
+    window.browser ||
+    window.chrome;
+})();
+
 function updateIcon() {
-  chrome.browserAction.setIcon({
+  window.browser.browserAction.setIcon({
     path: tour_recording ? {
       "48": "icons/galaxy_rec.png"
     } : {
@@ -12,8 +18,8 @@ function updateIcon() {
 }
 
 function sendToggle(){
-	chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-		chrome.tabs.sendMessage(tabs[0].id, {action: "toggle_tour_record", value: tour_recording}, function(response) {});  
+	window.browser.tabs.query({active: true, currentWindow: true}, function(tabs){
+		window.browser.tabs.sendMessage(tabs[0].id, {action: "toggle_tour_record", value: tour_recording}, function(response) {});  
 	});
 }
 
@@ -31,4 +37,4 @@ function toggleRecording() {
 	}
 }
 
-chrome.browserAction.onClicked.addListener(toggleRecording);
+window.browser.browserAction.onClicked.addListener(toggleRecording);
